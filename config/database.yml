@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  pool: 5
+  database: app_production
+  username: root
+  password: password
+  url: <%= ENV['JAWSDB_URL'] %>
+  master_key: <%= ENV['RAILS_MASTER_KEY'] %>
