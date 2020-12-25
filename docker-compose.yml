@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    command: ash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - node-modules:/app/node_modules
+      - /app/tmp
+      - /app/log
+      - /app/.git
+    ports:
+      - "8080:3000"
+    depends_on:
+      - db
+      
+volumes:
+  db-data:
+  bundle:
+  node-modules:

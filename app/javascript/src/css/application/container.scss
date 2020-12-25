@@ -1,0 +1,8 @@
+.container {
+  background: #F9F8F5;
+  padding: 35px;
+  
+  @include pc {
+    padding: 50px;
+  };
+}

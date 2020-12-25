@@ -1,0 +1,12 @@
+.header {
+  height: 45px;
+  padding: 0 15px;
+  background: #F9F8F5;
+  display: flex;
+  align-items: center;
+  
+  @include pc {
+    height: 90px;
+    padding: 0 40px;
+  };
+}
